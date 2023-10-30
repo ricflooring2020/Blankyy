@@ -1,0 +1,11 @@
+import requests
+
+def get_google_voice(text):
+    url = "http://translate.google.com/translate_tts?tl=en&q=" + text
+    response = requests.get(url)
+    with open("output.mp3", "wb") as f:
+        f.write(response.content)
+    return "output.mp3"
+
+message = input("Type a message: ")
+get_google_voice(message)
